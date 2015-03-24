@@ -1,0 +1,27 @@
+{
+  "name": "joi-mongoose",
+  "version": "1.0.0",
+  "description": "JOI schema to Mongoose schema generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Brady",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/HelloWallet/joi-mongoose.git"
+  },
+  "homepage": "http://hellowallet.com/",
+  "keywords": [
+    "joi",
+    "mongoose",
+    "schema",
+    "generator"
+  ],
+  "dependencies": {
+    "lodash": "^3.5.0",
+    "moment": "^2.9.0",
+    "mongoose": "^3.8.25"
+  }
+}
