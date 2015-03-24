@@ -4,7 +4,7 @@ JOI Schema to Mongoose Schema Generator
 ## Installation
 In package.json, add joi-mongoose:
 ```json 
-joi-mongoose: git://github.com/HelloWallet/joi-mongoose.git
+"joi-mongoose": "git://github.com/HelloWallet/joi-mongoose.git#1.0.0"
 ```
 
 ## Usage
