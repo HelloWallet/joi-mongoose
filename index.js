@@ -26,7 +26,7 @@ function processObject(schemaObject, outputSchema, mappings) {
                 var subObject = processObject(element.children, {}, mappings);
                 outputSchema[elementName] = subObject;
             } else if (type === 'array') {
-                var subArrayObj = processObject(element.includes[0].children, {}, mappings);
+                var subArrayObj = processObject(element.items[0].children, {}, mappings);
                 outputSchema[elementName] = [subArrayObj];
             } else if (['_id', 'id', '__v'].indexOf(elementName) > -1) {
                 // SKIP these default elements
