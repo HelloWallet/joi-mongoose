@@ -1,18 +1,16 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    ObjectId = mongoose.SchemaTypes.ObjectId,
-    moment = require('moment'),
+var moment = require('moment'),
     _ = require('lodash');
 
-var SchemaGenerator = function(schema) {
+var SchemaGenerator = function(mongoose, schema) {
     this.schema = schema;
     this.mappings = {
         'string': String,
         'number': Number,
         'boolean': Boolean,
         'date': Date,
-        'objectId': ObjectId
+        'objectId': mongoose.Schema.ObjectId
     };
 };
 
@@ -54,7 +52,13 @@ function processObject(schemaObject, outputSchema, mappings) {
                                     } else if (metaObjKey === 'dbAlias') {
                                         elementName = metaObj[metaObjKey];
                                     } else if (metaObjKey === 'defaultMoment') {
-                                        elementObj.default = moment[metaObj[metaObjKey]];
+                                        if (metaObj[metaObjKey] === "today") {
+                                            elementObj.default = function() {
+                                                return moment().utc().startOf("d");
+                                            }    
+                                        } else {
+                                            throw new Exception("Unsupported defaultMoment type " + metaObj[metaObjKey]);
+                                        }
                                     } else {
                                         elementObj[metaObjKey] = metaObj[metaObjKey];
                                     }
