@@ -54,7 +54,7 @@ function processObject(schemaObject, outputSchema, mappings) {
                                     } else if (metaObjKey === 'dbAlias') {
                                         elementName = metaObj[metaObjKey];
                                     } else if (metaObjKey === 'defaultMoment') {
-                                        elementName.default = moment[metaObj[metaObjKey]];
+                                        elementObj.default = moment[metaObj[metaObjKey]];
                                     } else {
                                         elementObj[metaObjKey] = metaObj[metaObjKey];
                                     }
